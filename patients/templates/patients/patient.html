@@ -1,0 +1,26 @@
+
+{% extends "patients/layout.html" %}
+
+{% block body %}
+
+    <h1>Patient Data</h1>
+
+    <ul>
+        <li>Name: {{ patient.name }}</li>
+        <li>Patient ID: {{ patient.id }}</li>
+        <li>Notes:</li>
+
+        <form style="width: 100%; height: 600px;" action="{% url 'addNotes' patient.id %}" name="notesForm" method="post">
+            {% csrf_token %}
+            <textarea type="text" name="patientNotes" style="font-size:30px; font-family: sans-serif; width: 95%; height: 100%; background-color:#f2f2f2 ; outline:none; color: black; border-radius: 25px; padding: 20px; font-family: Chivo, sans-serif; font-weight: 200; font-size: 35px;">{{patient.notes}}</textarea>
+            <div>
+                <input type="submit" name="saveNotes">
+            </div>
+        </form>
+
+      
+    
+    </ul>
+
+    
+{% endblock %}

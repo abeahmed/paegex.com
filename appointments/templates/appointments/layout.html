@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<link rel="stylesheet" href="/static/styles.css">
+<html lang="en">
+    <style>
+    </style>
+    <head>
+        <title>Appointments</title>
+    </head>
+
+    <body>
+        <header>
+            <div class="container">
+                <img src="/static/health.png" class="logo" style="width: 50px;"/>
+    
+                <nav>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="{% url 'index' %}">Appointments</a></li>
+                        <li><a href="{% url 'appointmentIndex' %}">Patients</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#"></a></li>   
+                    </ul>
+                </nav>
+            </div>
+        </header> 
+        {% block body %}
+        {% endblock %}
+    </body>
+</html>

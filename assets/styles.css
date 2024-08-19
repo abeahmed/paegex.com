@@ -1,0 +1,250 @@
+@font-face {
+    font-family: Chivo;
+    src: url(Chivo/Chivo-Regular.ttf);
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: Chivo;
+    src: url(Chivo/Chivo-Bold.ttf);
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: Chivo;
+    src: url(Chivo/Chivo-Light.ttf);
+    font-weight: 200;
+}
+
+@font-face {
+    font-family: Chivo;
+    src: url(Chivo/Chivo-Black.ttf);
+    font-weight: 800;
+}
+
+
+main {
+    max-width: 100%;
+    padding: 0;
+}
+
+body {
+    font-family: Chivo, sans-serif;
+    font-weight: 200;
+    font-size: 40px;   
+    margin: 0px;
+    padding: 0px; 
+}
+
+body li {
+    margin-left: 70px;
+}
+
+body h1 {
+    margin-left: 40px;
+    color: #ffffff;
+}
+
+textarea {
+    margin-left: 50px;
+    margin-top: 20px;
+    margin-bottom: 50px;
+    font-size:30px; 
+    font-family: sans-serif; 
+    width: 95%; 
+    height: 100%; 
+    background-color:gainsboro; 
+    outline: none; 
+    color: black; 
+    border-radius: 25px; 
+    padding: 20px; 
+    font-family: Chivo, sans-serif; 
+    font-weight: 200; 
+    font-size: 35px;
+}
+
+table{
+    font-size: 30px;
+}
+
+select, input  {
+    height: 50px;
+    width: 615px;
+    font-size: 25px;
+    align-items: center;
+}
+
+main {
+    max-width: 100%;
+    padding: 0;
+}
+
+body {
+    font-family: Chivo, sans-serif;
+    font-weight: 200;
+    font-size: 40px;   
+    margin: 0px;
+    padding: 0px;
+    background-color: #2b6777;
+    color: white; 
+}
+
+body li {
+    margin-left: 70px;
+}
+
+body h1 {
+    margin-left: 40px;
+    color: #ffffff;
+}
+
+textarea {
+    margin-left: 50px;
+    margin-top: 20px;
+    margin-bottom: 50px;
+}
+
+table{
+    font-size: 30px;
+    border-radius: 25px;
+    margin-left: 50px;
+    margin-top: 20px;
+    margin-bottom: 50px;
+}
+
+select, input  {
+    height: 50px;
+    width: 615px;
+    font-size: 25px;
+    align-items: center;
+}
+
+.container {
+    width: 95%;
+    margin: 0 auto;
+}
+
+header {
+    background:white;
+    box-shadow: 5px solid gainsboro;
+    height: 80px;
+}
+
+header::after {
+    content:'';
+    display: table;
+    clear: both;
+}
+
+.logo {
+    float: left;
+    padding: 10px 0;
+    margin-left: 25px;
+}
+
+nav {
+    float: right;
+}
+
+nav ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+nav li{
+    display: inline-block;
+    margin-left: 30px;
+    padding-top: 25px;
+    position: relative;
+    
+}   
+
+nav a{
+    color: black;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: normal;
+    font-family:Chivo, sans-serif;
+    
+}
+
+nav a:hover {
+    color:teal;
+}
+
+thead {
+    background-color: #52ab98;
+}
+
+tbody tr {
+        background-color: #c8d8e4;
+}
+
+table a {
+    text-decoration: none;
+    color: #2b6777;
+    font-weight: normal;
+    font-size: 30px;
+    
+}
+
+table a:hover {
+    color:white;
+}
+
+table, th, td, tr {
+    border: 6px solid #ffffff;
+    border-collapse: collapse;
+    text-align: center;   
+}
+table {
+    counter-reset: rowNumber;
+}
+  
+table tbody tr::before {
+    display: table-cell;
+    counter-increment: rowNumber;
+    content: counter(rowNumber) ".";
+    padding-right: 0.3em;
+    text-align: center;
+}
+
+
+select, input  {
+    height: 50px;
+    width: 615px;
+    margin-left: 5px;
+    font-size: 25px;
+    padding-left: 30px;
+    align-items: center;
+    border-radius: 20px;
+    padding-left: 10px;
+    outline: none;
+    border: none;
+    font-family: Chivo, sans-serif;
+}
+
+
+body h2 {
+    margin-left: 40px;
+    color: #ffffff;
+}
+
+nav a::after {
+    content: '';
+    display: block;
+    height: 3px;
+    margin-left: 10%;
+    margin-right: 10%;
+    background-color: #52ab98;
+
+    width: 0%;
+    transition: all ease-in-out 200ms;
+}
+
+nav a:hover::after {
+    margin-left: 10%;
+    margin-right: 10%;
+    width: 80%;
+}

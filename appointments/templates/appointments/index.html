@@ -1,0 +1,77 @@
+
+{% extends "appointments/layout.html" %}
+
+{% block body %}
+    <h1>Appointments:</h1>
+        <table style="width: 90%;">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>AppointmentID</th>
+                    <th>Name</th> 
+                    <th>PatientID</th>
+                    <th>Department</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+
+            <tbody >
+                {% for appointment in appointments %}
+                    <tr>
+                        <td>
+                            <a href="{% url 'appointment' appointment.id %}">
+                                {{appointment.id}}
+                            </a>
+                        </td>
+
+                        <td>
+                            <a href="{% url 'patient' appointment.patient.id %}">
+                                {{appointment.patient.name}}
+                            </a>
+                        </td>
+
+                        <td>
+                            <a href="{% url 'patient' appointment.patient.id %}">
+                                {{appointment.patient.id}}  
+                            </a>
+                        </td>
+
+                        <td>
+                            <a href="{% url 'appointment' appointment.id %}">
+                                {{appointment.department}}
+                            </a>
+                        </td>
+
+                        <td>
+                            <a href="{% url 'appointment' appointment.id %}">
+                                {{appointment.date}}
+                            </a>
+                        </td>   
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+    <h2>Add Appointment</h2>
+
+    <form action="{% url 'addAppointment' %}" method="post">
+        {% csrf_token %}
+        <select name="patient" required>
+            <option value="" disabled selected hidden>Patient Name</option>
+            {% for patient in patients %}
+                <option value="{{ patient.id }}">{{ patient }}</option>
+            {% endfor %}
+        </select>
+        <select name="department" required>
+                <option value="" disabled selected hidden>Department</option>
+                <option value="Ophthalmology">{{ "Opthamology" }}</option>
+                <option value="Dentistry">{{ "Dentistry" }}</option>
+                <option value="Cardiology">{{ "Cardiology" }}</option>
+        </select>
+        <input type="date" name="date" required>
+        <hr>
+        <input type="submit">
+    </form>
+{% endblock %}
+
+
