@@ -5,6 +5,9 @@ from django.urls import reverse
 
 from .models import Appointment, Patient
 # Create your views here.
+def loginPage (request):
+    return render(request, 'appointments/login_register.html')
+
 def index(request):
     return render(request, "appointments/index.html", {
         "appointments": Appointment.objects.all(),

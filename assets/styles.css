@@ -211,15 +211,14 @@ table tbody tr::before {
 }
 
 
-select, input  {
+select, input, button  {
     height: 50px;
     width: 615px;
     margin-left: 5px;
     font-size: 25px;
-    padding-left: 30px;
     align-items: center;
     border-radius: 20px;
-    padding-left: 10px;
+    padding-left: 15px;
     outline: none;
     border: none;
     font-family: Chivo, sans-serif;
@@ -248,3 +247,32 @@ nav a:hover::after {
     margin-right: 10%;
     width: 80%;
 }
+
+.loginContainer {
+    display: flex;
+    justify-content: center;
+}
+
+.loginContainer h1 {
+    text-align: center;
+    margin-left: 0px ;
+    margin-right: 0px;
+}
+
+.innerLoginContainer {
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.loginButton {
+    background-color:#52ab98;
+    color: white;
+    width: 300px;
+    margin-top: 30px;
+}
+
+.buttonContainer {
+    margin: auto;
+    width: 50%;
+}
+
