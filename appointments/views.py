@@ -2,24 +2,28 @@ from django.http.response import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from django.urls import reverse
+from django.contrib.auth.decorators import login_required
+
 
 from .models import Appointment, Patient
 # Create your views here.
-def loginPage (request):
-    return render(request, 'appointments/login_register.html')
 
+@login_required(login_url='loginPage')
 def index(request):
+    user = request.user
     return render(request, "appointments/index.html", {
-        "appointments": Appointment.objects.all(),
-        "patients": Patient.objects.all(),
+        "appointments": Appointment.objects.filter(patient__user=user),
+        "patients": Patient.objects.filter(user=user),
     })
 
+@login_required(login_url='loginPage')
 def appointment(request, appointment_id):
     appointment = Appointment.objects.get(pk=appointment_id)
     return render(request, "appointments/appointment.html", {
         "appointment": appointment,
     })
 
+@login_required(login_url='loginPage')
 def addAppointment(request):
     if  request.method == "POST":
         patientName = Patient.objects.get(pk=int(request.POST["patient"]))

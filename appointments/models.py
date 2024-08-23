@@ -2,9 +2,11 @@ from django.db import models
 from random import randint, randrange
 from django.db.models.fields import IntegerField
 from django.utils.crypto import get_random_string
+from django.contrib.auth.models import User
 
 # Create your models here.
 class Patient(models.Model):
+    user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True)
     name = models.CharField(max_length=64)  
     id = models.BigAutoField(primary_key=True)
     notes = models.CharField(max_length=1000, default="")

@@ -2,14 +2,16 @@
 
 {% block body %}
     <div>
+        {% if page == 'login' %}
         <h1>
             Login
         </h1>
-            <form class="loginForm">
+            <form method='post' class="loginForm">
+                {% csrf_token %}
                 <div>
                     <label>Username</label>
                     <div class="innerLoginContainer">
-                        <input type="email" name="username" placeholder="Username">
+                        <input type="text" name="username" placeholder="Username">
                     </div>
                 </div>
                 <div>
@@ -21,7 +23,32 @@
                 <div class="buttonContainer">
                     <button class="loginButton" type="submit">Submit</button>
                 </div>
-                
+                <div class="buttonContainer" style="width: 500px;">
+                    <p>Don't have an account?  <a href="{% url 'register' %}">Register</a></p>
+                </div>
             </form>
+        {% else %}
+        <h1>
+            Register
+        </h1>
+            <form method='post'>
+                {% csrf_token %}
+                {% for field in form %}
+                <div>
+                    <label>{{field.label}}</label>
+                    <div class="innerLoginContainer">
+                        {{field}}
+                    </div>
+                </div>
+                {% endfor %}
+                <div class="buttonContainer">
+                    <button class="loginButton" type="submit">Submit</button>
+                </div>
+                <div class="buttonContainer" style="width: 500px;">
+                    <p>Already have an account?  <a href="{% url 'loginPage' %}">Login</a></p>
+                </div>
+            </form>
+
+        {% endif %}
     </div>
 {% endblock %}
