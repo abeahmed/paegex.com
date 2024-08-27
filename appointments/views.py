@@ -32,3 +32,12 @@ def addAppointment(request):
         newAppointment = Appointment.objects.create(patient=patientName, department=departmentName, date=dateValue)
         newAppointment.save()
         return HttpResponseRedirect(reverse("appointment", args=(newAppointment.id,)))
+
+@login_required(login_url='loginPage')
+def removeAppointment(request):
+    if request.method == "POST":
+        selectedAppointment = Appointment.objects.get(pk=int(request.POST["appointmentComplete"]))
+        selectedAppointment.delete()
+        return HttpResponseRedirect(reverse("index"))
+
+        

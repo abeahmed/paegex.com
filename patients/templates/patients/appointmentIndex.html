@@ -3,41 +3,58 @@
 {% extends "patients/layout.html" %}
 
 {% block body %}
-    <h1>Patients</h1>
-
-    <table style="width: 90%;">
-        <thead>
-            <tr>
-                <th></th>
-                <th>Name</th>
-                <th>ID</th> 
-            </tr>
-        </thead>
-
-        <tbody>
-            {% for patient in patients %}
+    <h1>Patients:</h1>
+    {% if not patients %}
+        <h2 class="textMessage">No Patient Records. Try adding one below</h2>
+    {% else %}
+        <table style="width: 90%;">
+            <thead>
                 <tr>
-                    <td>
-                        <a href="{% url 'patient' patient.id %}">
-                            {{patient.name}}
-                        </a>    
-                    </td>
-
-                    <td>
-                        <a href="{% url 'patient' patient.id %}">
-                            {{patient.id}}
-                        </a>
-                    </td>
-
+                    <th></th>
+                    <th>Name</th>
+                    <th>ID</th> 
+                    <th></th>
                 </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+            </thead>
 
-    <h2>Add Patient</h2>
+            <tbody>
+                {% for patient in patients %}
+                    <tr>
+                        <td>
+                            <a href="{% url 'patient' patient.id %}">
+                                {{patient.name}}
+                            </a>    
+                        </td>
+
+                        <td>
+                            <a href="{% url 'patient' patient.id %}">
+                                {{patient.id}}
+                            </a>
+                        </td>
+
+                        <td>
+                            <a href="{% url 'removePatient' patient.id %}" class="deleteButton">
+                                Delete
+                            </a>
+                        </td>
+
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% endif %}
+
+    <hr>
+
+    <h2>Add Patient:</h2>
     <form action = "{% url 'addPatient' %}" method="POST">
         {% csrf_token %}
-        <input type="text" name="patientName" placeholder="Enter Patient Name" required>
-        <input type="submit">
+        <div class="addForm">
+            Name:<br>
+            <input type="text" name="patientName" placeholder="Enter patient name" required>
+        </div>
+        <div class="addForm">
+            <input type="submit">
+        </div>
     </form>
 {% endblock %}

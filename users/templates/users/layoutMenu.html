@@ -1,17 +1,12 @@
 <!DOCTYPE html>
-<link rel="stylesheet" href="/static/styles.css">
 <html lang="en">
-    <style>
-    </style>
-    <head>
-        <title>Appointments</title>
-    </head>
-
+<link rel="stylesheet" href="/static/styles.css">   
     <body>
+    {% if user.is_authenticated %}
         <header>
             <div class="container">
                 <img src="/static/Paegex.svg" class="logo" style="width: 90px;"/>
-    
+
                 <nav>
                     <ul>
                         <li><a href="{% url 'home' %}">Home</a></li>
@@ -23,6 +18,21 @@
                 </nav>
             </div>
         </header> 
+    {% elif not user.is_authenticated %}
+        <header>
+            <div class="container">
+                <img src="/static/Paegex.svg" class="logo" style="width: 90px;"/>
+
+                <nav>
+                    <ul>
+                        <li><a href="{% url 'home' %}">Home</a></li>
+                        <li><a href="{% url 'about' %}">About</a></li>
+                        <li><a href="{% url 'loginPage' %}">Login</a></li>   
+                    </ul>
+                </nav>
+            </div>
+        </header> 
+    {% endif %}
         {% block body %}
         {% endblock %}
     </body>

@@ -5,11 +5,16 @@ from django.urls import reverse
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from .forms import CustomUserCreationForm
+from django.contrib import messages
 
 
 # Create your views here.   
 def home(request):
     return render(request, "users/home.html")
+
+def about(request):
+    return render(request, "users/about.html")
+
 def loginUser(request):
     page = 'login'
     if request.method == 'POST':
@@ -21,6 +26,8 @@ def loginUser(request):
         if user is not None: 
             login(request, user)
             return redirect('index')
+        if user is None:
+            messages.error(request, "Incorrect username or password.")
 
     return render(request, "users/login_register.html", {'page': page})
 
@@ -47,3 +54,4 @@ def registerUser(request):
 
     context = {'form': form, 'page': page}
     return render(request, 'users/login_register.html', context)
+

@@ -20,6 +20,15 @@
                         <input type="password" name="password" placeholder="Password">
                     </div>
                 </div>
+                {% if messages %}
+                    <div>
+                        {% for message in messages %}
+                            <div class="errorMessage">
+                                <span class="loginError">{{ message }}</span>
+                            </div>
+                        {% endfor %}
+                    </div>
+                {% endif %}
                 <div class="buttonContainer">
                     <button class="loginButton" type="submit">Submit</button>
                 </div>
@@ -41,6 +50,17 @@
                     </div>
                 </div>
                 {% endfor %}
+                {% if form.errors %}
+                    <div>
+                        {% for field, errors in form.errors.items %}
+                            {% for error in errors %}
+                                <div class="errorMessage">
+                                    <span class="loginError">{{ error }}</span>
+                                </div>
+                            {% endfor %}
+                        {% endfor %}
+                    </div>
+                {% endif %}
                 <div class="buttonContainer">
                     <button class="loginButton" type="submit">Submit</button>
                 </div>

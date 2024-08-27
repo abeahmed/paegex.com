@@ -7,17 +7,17 @@
     </head>
 
     <body>
-            <header>
+    <header>
         <div class="container">
-            <img src="/static/health.png" class="logo" style="width: 50px;"/>
+            <img src="/static/Paegex.svg" class="logo" style="width: 90px;"/>
 
             <nav>
                 <ul>
-                    <li><a href="#">Home</a></li>
+                    <li><a href="{% url 'home' %}">Home</a></li>
                     <li><a href="{% url 'index' %}">Appointments</a></li>
                     <li><a href="{% url 'appointmentIndex' %}">Patients</a></li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#"></a></li>   
+                    <li><a href="{% url 'about' %}">About</a></li>
+                    <li><a href="{% url 'logoutPage' %}">Logout</a></li>  
                 </ul>
             </nav>
         </div>

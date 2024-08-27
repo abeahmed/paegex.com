@@ -3,6 +3,9 @@
 
 {% block body %}
     <h1>Appointments:</h1>
+    {% if not appointments %}
+        <h2 class="textMessage">No appointments to show. Try adding one below</h2>
+    {% else %}
         <table style="width: 90%;">
             <thead>
                 <tr>
@@ -12,6 +15,7 @@
                     <th>PatientID</th>
                     <th>Department</th>
                     <th>Date</th>
+                    <th>Complete</th>
                 </tr>
             </thead>
 
@@ -47,30 +51,47 @@
                                 {{appointment.date}}
                             </a>
                         </td>   
+
+                        <td>
+                            <form action="{% url 'removeAppointment' %}" method="post">
+                                {% csrf_token %}
+                                <input type="checkbox" id="appointmentComplete" name="appointmentComplete" value="{{ appointment.id }}" onChange="this.form.submit()" style="width: 40px;">
+                            </form>
+                        </td>
                     </tr>
                 {% endfor %}
             </tbody>
         </table>
+    {% endif %}
 
-    <h2>Add Appointment</h2>
+    <hr>
+
+    <h2>Add an appointment:</h2>
 
     <form action="{% url 'addAppointment' %}" method="post">
         {% csrf_token %}
-        <select name="patient" required>
-            <option value="" disabled selected hidden>Patient Name</option>
-            {% for patient in patients %}
-                <option value="{{ patient.id }}">{{ patient }}</option>
-            {% endfor %}
-        </select>
-        <select name="department" required>
-                <option value="" disabled selected hidden>Department</option>
-                <option value="Ophthalmology">{{ "Opthamology" }}</option>
-                <option value="Dentistry">{{ "Dentistry" }}</option>
-                <option value="Cardiology">{{ "Cardiology" }}</option>
-        </select>
-        <input type="date" name="date" required>
-        <hr>
-        <input type="submit">
+        <div class="addForm">
+            <select name="patient" required>
+                <option value="" disabled selected hidden>Patient Name</option>
+                {% for patient in patients %}
+                    <option value="{{ patient.id }}">{{ patient }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="addForm">
+            <select name="department" required>
+                    <option value="" disabled selected hidden>Department</option>
+                    <option value="Ophthalmology">{{ "Opthamology" }}</option>
+                    <option value="Dentistry">{{ "Dentistry" }}</option>
+                    <option value="Cardiology">{{ "Cardiology" }}</option>
+            </select>
+        </div>
+        <div class="addForm">
+            <input type="date" name="date" required>
+        </div>
+        <div class="addForm">
+            <input type="submit">
+        </div>
     </form>
 {% endblock %}
 

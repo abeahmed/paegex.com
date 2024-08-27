@@ -39,3 +39,9 @@ def addPatient(request):
         patientName = request.POST["patientName"]
         newPatient = Patient.objects.create(name = patientName, user=user)
         return HttpResponseRedirect(reverse("appointmentIndex"))
+
+@login_required(login_url='loginPage')
+def removePatient(request, patient_id):
+    patient = Patient.objects.get(pk=patient_id)
+    patient.delete()
+    return HttpResponseRedirect(reverse("appointmentIndex"))

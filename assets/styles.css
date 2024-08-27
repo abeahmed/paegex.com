@@ -139,7 +139,8 @@ header::after {
 .logo {
     float: left;
     padding: 10px 0;
-    margin-left: 25px;
+    margin-left: 10px;
+    margin-top: 10px;
 }
 
 nav {
@@ -213,10 +214,9 @@ table tbody tr::before {
 
 select, input, button  {
     height: 50px;
-    width: 615px;
-    margin-left: 5px;
+    font-weight: lighter;
+    margin: auto;
     font-size: 25px;
-    align-items: center;
     border-radius: 20px;
     padding-left: 15px;
     outline: none;
@@ -224,6 +224,13 @@ select, input, button  {
     font-family: Chivo, sans-serif;
 }
 
+select, input, button :hover  {
+}
+
+hr {
+    color: white;
+    border: 2px solid white;
+}
 
 body h2 {
     margin-left: 40px;
@@ -273,6 +280,8 @@ nav a:hover::after {
 
 .loginButton:hover{
     background-color: teal;
+    cursor: pointer;
+    color: #B9BBB6;
 }
 
 .buttonContainer {
@@ -293,4 +302,52 @@ p a {
 
 p a:hover {
     text-decoration: underline;
+}
+
+span {
+    color: red;
+    font-size: 30px;
+    font-weight: normal;
+    margin: auto;
+}
+
+@keyframes errorAnimation {
+    from {transform: translateY(+20px); opacity: 0;}
+    to {transform: translateY(0px); opacity: 100;}
+}
+
+.errorMessage {
+    background-color: white; 
+    border-radius: 10px; 
+    padding: 10px; 
+    margin-top: 30px; 
+    border-left: 7px solid red; 
+    display: flex; 
+    max-width: 700px;
+    animation-name: errorAnimation;
+    animation-duration: 1.5s;
+}
+
+.deleteButton {
+    color: red;
+    font-weight: normal;
+}
+
+.deleteButton:hover{
+    text-decoration: underline;
+    color: red;
+}
+
+.textMessage {
+    font-weight: normal;
+    font-style: italic;
+    margin-left: 70px;
+    color: #c8d8e4;
+    font-weight: normal;
+}
+
+.addForm {
+    padding-left: 80px;
+    padding-top: 30px;
+    padding-bottom: 30px;
 }
