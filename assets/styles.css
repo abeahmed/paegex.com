@@ -224,7 +224,21 @@ select, input, button  {
     font-family: Chivo, sans-serif;
 }
 
-select, input, button :hover  {
+select:hover  {
+    box-shadow: 5px 5px 10px #222222;
+}
+
+input:hover {
+    box-shadow: 5px 5px 10px #222222;
+}
+
+.submitButton {
+    margin-bottom: 40px;
+}
+
+.submitButton:hover {
+    cursor: pointer;
+    filter: brightness(0.8);
 }
 
 hr {
@@ -365,3 +379,4 @@ span {
 .pageLinks:hover {
     text-decoration: underline;
 }
+

@@ -6,7 +6,8 @@
     </h1>
 
     <ul>
-        <li>Patient: {{ appointment.patient.name }} (Patient ID = {{ appointment.patient.id }}) <a class="pageLinks" style="margin-left: 10px;" href="{% url 'patient' appointment.patient.id %}">View patient details</a></li> 
+        <li>Appointment ID: {{ appointment.identification }}</li>
+        <li>Patient: {{ appointment.patient.name }} (Patient ID = {{ appointment.patient.id }}) <a class="pageLinks" style="margin-left: 10px;" href="{% url 'patient' appointment.patient.id %}">View patient details ></a></li> 
         <li>Appointment Date: {{ appointment.date }}</li>
         <li>Department: {{ appointment.department }}</li>
     </ul>

@@ -4,6 +4,8 @@ from django.db.models.fields import IntegerField
 from django.utils.crypto import get_random_string
 from django.contrib.auth.models import User
 from django.utils import timezone
+import random
+import string
 
 # Create your models here.
 class Patient(models.Model):
@@ -39,9 +41,26 @@ class Appointment(models.Model):
     date = models.DateField() 
     patient = models.ForeignKey(Patient, on_delete=models.CASCADE, related_name="appointments")
     department = models.ForeignKey(Department, on_delete=models.CASCADE, related_name="appointments")
+    identification = models.CharField(max_length=6)
+
+    def get_random_string(length):
+        letters = string.ascii_lowercase
+        result_str = ''.join(random.choice(letters) for i in range(length))
+        return result_str
+
+    def save(self,*args, **kwargs):
+        if not self.identification:
+            is_unique = False
+            while not is_unique:
+                checkId = get_random_string(6) # 19 digits: 1, random 18 digits
+                is_unique = not Appointment.objects.filter(identification=checkId).exists()
+            self.identification = checkId
+        super(Appointment, self).save(*args, **kwargs)
     
     def __str__(self):
         return f"Appointment {self.id}: {self.patient} with {self.department} department on {self.date}"
+
+      
 
 
     
