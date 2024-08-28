@@ -1,5 +1,26 @@
 {% extends 'users/layoutMenu.html' %}
 
+{% load staticfiles %}
+
 {% block body %}
     <h1>About</h1>
+
+    <hr>
+
+    <h2 style="text-decoration: underline;">CEO(Chief Executive Officer) | Founder | Creator</h2>
+    
+    <div style="display: grid; width: 100%; margin-bottom: 40px;">
+        <div style="grid-column-start: 1; grid-column-end:2; justify-content: center; border-right: 5px solid white;">
+            <h2>Abdullah Ahmed:</h2>
+            <div class="textMessage">Hi, my name is Abdullah.<br> I'm a 16 year old A-level student<br>from Islamabad, Pakistan.<br>I love technology, and everything to do with it</div>
+            <h2>The story:</h2>
+            <div class="textMessage">
+                The idea for Paegex came about when I was<br>tasked with finding a patient management software,<br>my mother could implement in her clinic.<br>I experimented using various different software, <br>but none of them seemed to fit.<br> They weren't very user-friendly and,<br>many of them, too complex.<br>It was then that I decided to create<br> a patient management system of my own,<br> one with a simplified interface,<br>one which is easy to use, and most importantly,<br>one which is secure.<br> And so, Paegex was born.
+            </div>
+
+        </div>
+        <img src="{% static '/Abdullah.jpeg' %}" style= "width:600px; margin-left: 50px; margin-top: 50px; grid-column-start: 3; grid-column-end:6; border-radius: 50%;">
+    </div>
+
+
 {% endblock %}
