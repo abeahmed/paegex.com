@@ -14,7 +14,9 @@
                     <th>PatientID</th>
                     <th>Department</th>
                     <th>Date</th>
+                    <th></th>
                     <th>Complete</th>
+                    
                 </tr>
             </thead>
 
@@ -34,7 +36,7 @@
                         </td>
 
                         <td>
-                            <a href="{% url 'appointment' appointment.id %}">
+                            <a href="{% url 'departments' %}">
                                 {{appointment.department}}
                             </a>
                         </td>
@@ -44,6 +46,12 @@
                                 {{appointment.date}}
                             </a>
                         </td>   
+                        
+                        <td>
+                            <a href="{% url 'appointment' appointment.id %}">
+                                View appointment
+                            </a>
+                        </td>  
 
                         <td>
                             <form action="{% url 'removeAppointment' %}" method="post">
@@ -78,7 +86,7 @@
                         <option value="{{ department.id }}">{{ department }}</option>
                     {% endfor %}
             </select>
-            <a href="departments">Add/Change departments</a>
+            <a href="departments" class="pageLinks">Add/Change departments</a>
         </div>
         <div class="addForm">
             <input type="date" name="date" required>

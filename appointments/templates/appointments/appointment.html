@@ -2,14 +2,14 @@
 
 {% block body %}
     <h1>
-        Appointment {{ appointment.id }}
+        Appointment Data:
     </h1>
 
     <ul>
-        <li>Patient: {{ appointment.patient.name }} (Patient ID = {{ appointment.patient.id }})</li>
+        <li>Patient: {{ appointment.patient.name }} (Patient ID = {{ appointment.patient.id }}) <a class="pageLinks" style="margin-left: 10px;" href="{% url 'patient' appointment.patient.id %}">View patient details</a></li> 
         <li>Appointment Date: {{ appointment.date }}</li>
         <li>Department: {{ appointment.department }}</li>
     </ul>
 
-    <a href = "{% url 'index' %}">Back to Appointment List</a>
+    <a href = "{% url 'index' %}" class="pageLinks">Back to Appointment List</a>
 {% endblock %}

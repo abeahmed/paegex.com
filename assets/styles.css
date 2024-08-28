@@ -331,6 +331,7 @@ span {
 .deleteButton {
     color: red;
     font-weight: normal;
+    text-decoration: none;
 }
 
 .deleteButton:hover{
@@ -350,4 +351,17 @@ span {
     padding-left: 80px;
     padding-top: 30px;
     padding-bottom: 30px;
+}
+
+.pageLinks {
+    text-decoration: none;
+    color: #52ab98;
+    font-weight: normal;
+    font-size: 30px;
+    margin-left: 50px;
+    
+}
+
+.pageLinks:hover {
+    text-decoration: underline;
 }
