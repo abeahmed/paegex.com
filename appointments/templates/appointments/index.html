@@ -10,7 +10,6 @@
             <thead>
                 <tr>
                     <th></th>
-                    <th>AppointmentID</th>
                     <th>Name</th> 
                     <th>PatientID</th>
                     <th>Department</th>
@@ -22,12 +21,6 @@
             <tbody >
                 {% for appointment in appointments %}
                     <tr>
-                        <td>
-                            <a href="{% url 'appointment' appointment.id %}">
-                                {{appointment.id}}
-                            </a>
-                        </td>
-
                         <td>
                             <a href="{% url 'patient' appointment.patient.id %}">
                                 {{appointment.patient.name}}
@@ -81,10 +74,11 @@
         <div class="addForm">
             <select name="department" required>
                     <option value="" disabled selected hidden>Department</option>
-                    <option value="Ophthalmology">{{ "Opthamology" }}</option>
-                    <option value="Dentistry">{{ "Dentistry" }}</option>
-                    <option value="Cardiology">{{ "Cardiology" }}</option>
+                    {% for department in departments %}
+                        <option value="{{ department.id }}">{{ department }}</option>
+                    {% endfor %}
             </select>
+            <a href="departments">Add/Change departments</a>
         </div>
         <div class="addForm">
             <input type="date" name="date" required>

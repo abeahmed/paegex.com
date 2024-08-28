@@ -37,7 +37,10 @@ def addPatient(request):
     user = request.user
     if request.method == "POST":
         patientName = request.POST["patientName"]
-        newPatient = Patient.objects.create(name = patientName, user=user)
+        patientPhone = request.POST["patientTel"]
+        patientGender = request.POST["patientGender"]
+        patientDOB = request.POST["patientDOB"]
+        newPatient = Patient.objects.create(name = patientName, user=user, phone = patientPhone, gender = patientGender, dateOfBirth = patientDOB)
         return HttpResponseRedirect(reverse("appointmentIndex"))
 
 @login_required(login_url='loginPage')

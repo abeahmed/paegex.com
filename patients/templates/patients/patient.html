@@ -8,6 +8,9 @@
     <ul>
         <li>Name: {{ patient.name }}</li>
         <li>Patient ID: {{ patient.id }}</li>
+        <li>Date Of Birth: {{ patient.dateOfBirth }}</li>
+        <li>Gender: {{ patient.gender }}</li>
+        <li>Phone Number: {{ patient.phone }}</li>
         <li>Notes:</li>
 
         <form style="width: 100%; height: 600px;" action="{% url 'addNotes' patient.id %}" name="notesForm" method="post">
