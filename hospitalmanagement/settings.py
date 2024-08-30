@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-$zdw#d$0k&pgqsyp%$mj*6%*fw^t3-($!=6z3nvbzwu1u!u+9p
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['paegex.herokuapp.com', '127.0.0.1']
+ALLOWED_HOSTS = ['paegex.herokuapp.com', '127.0.0.1', 'www.paegex.com', 'paegex.com']
 
 
 # Application definition
