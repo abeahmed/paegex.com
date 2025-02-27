@@ -6,6 +6,11 @@
         <header>
             <div class="container">
                 <img src="/static/Paegex.svg" class="logo" style="width: 90px;"/>
+                <div class="hamburger">
+                    <div class="line"></div>
+                    <div class="line"></div>
+                    <div class="line"></div>
+                </div>
 
                 <nav>
                     <ul>
@@ -22,6 +27,11 @@
         <header>
             <div class="container">
                 <img src="/static/Paegex.svg" class="logo" style="width: 90px;"/>
+                <div class="hamburger">
+                    <div class="line"></div>
+                    <div class="line"></div>
+                    <div class="line"></div>
+                </div>
 
                 <nav>
                     <ul>
@@ -35,5 +45,17 @@
     {% endif %}
         {% block body %}
         {% endblock %}
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const hamburger = document.querySelector('.hamburger');
+                const nav = document.querySelector('nav');
+                
+                hamburger.onclick = function() {
+                    nav.classList.toggle('active');
+                    hamburger.classList.toggle('active');
+                }
+            });
+        </script>
     </body>
 </html>

@@ -33,7 +33,7 @@ def loginUser(request):
 
 def logoutUser(request):
     logout(request)
-    return redirect('loginPage')
+    return redirect('home')
 
 def registerUser(request):  
     page = 'register'

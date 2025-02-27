@@ -1,8 +1,9 @@
 
-{% extends "patients/layout.html" %}
+{% extends "users/layoutMenu.html" %}
 
 {% block body %}
-
+    
+    <a onClick="javascript:history.go(-1)" class="pageLinks">&larr; Back</a>
     <h1>Patient Data</h1>
 
     <ul>
@@ -13,10 +14,10 @@
         <li>Phone Number: {{ patient.phone }}</li>
         <li>Notes:</li>
 
-        <form style="width: 100%; height: 600px;" action="{% url 'addNotes' patient.id %}" name="notesForm" method="post">
+        <form style="width: auto; height: 600px; padding-right: 50px;" action="{% url 'addNotes' patient.id %}" name="notesForm" method="post">
             {% csrf_token %}
-            <textarea type="text" name="patientNotes" style="font-size:30px; font-family: sans-serif; width: 95%; height: 100%; background-color:#f2f2f2 ; outline:none; color: black; border-radius: 25px; padding: 20px; font-family: Chivo, sans-serif; font-weight: 200; font-size: 35px;">{{patient.notes}}</textarea>
-            <div>
+            <textarea type="text" name="patientNotes" class="notes">{{patient.notes}}</textarea>
+            <div class="submitWrapper">
                 <input type="submit" name="saveNotes" class="submitButton">
             </div>
         </form>

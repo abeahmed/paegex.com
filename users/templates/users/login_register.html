@@ -1,7 +1,9 @@
 {% extends "users/layout.html" %}
 
 {% block body %}
+
     <div>
+        <a href="{% url 'home' %}" class="pageLinks">&larr; Back</a>
         {% if page == 'login' %}
         <h1>
             Login
@@ -9,14 +11,14 @@
             <form method='post' class="loginForm">
                 {% csrf_token %}
                 <div>
-                    <label>Username</label>
                     <div class="innerLoginContainer">
+                        <label>Username</label>
                         <input type="text" name="username" placeholder="Username">
                     </div>
                 </div>
                 <div>
-                    <label>Password</label>
                     <div class="innerLoginContainer">
+                        <label>Password</label>
                         <input type="password" name="password" placeholder="Password">
                     </div>
                 </div>
@@ -44,8 +46,8 @@
                 {% csrf_token %}
                 {% for field in form %}
                 <div>
-                    <label>{{field.label}}</label>
                     <div class="innerLoginContainer">
+                        <label>{{field.label}}</label>
                         {{field}}
                     </div>
                 </div>

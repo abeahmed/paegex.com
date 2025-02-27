@@ -1,16 +1,15 @@
 
  
-{% extends "patients/layout.html" %}
+{% extends "users/layoutMenu.html" %}
 
 {% block body %}
     <h1>Patients:</h1>
     {% if not patients %}
         <h2 class="textMessage">No Patient Records. Try adding one below</h2>
     {% else %}
-        <table style="width: 90%;">
+        <table>
             <thead>
                 <tr>
-                    <th></th>
                     <th>Name</th>
                     <th>ID</th> 
                     <th></th>
@@ -34,7 +33,7 @@
 
                         <td>
                             <a href="{% url 'removePatient' patient.id %}" class="deleteButton">
-                                Delete
+                                &#x2715; Delete
                             </a>
                         </td>
 
@@ -68,9 +67,9 @@
         </div>
         <div class="addForm">
             Phone Number:<br>
-            <input type="tel" name="patientTel" placeholder="Enter patient phone number" required>
+            <input type="tel" name="patientTel" placeholder="Enter patient phone number" pattern="[0-9]*" required>
         </div>
-        <div class="addForm">
+        <div class = "submitWrapper">
             <input type="submit" class="submitButton">
         </div>
     </form>

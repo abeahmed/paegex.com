@@ -1,11 +1,12 @@
-{% extends "appointments/layout.html" %}
+{% extends "users/layoutMenu.html" %}
 
 {% block body %}
+<a onClick="javascript:history.go(-1)" class="pageLinks">&larr; Back</a>
     <h1>Departments:</h1>
 
     {% for department in departments %}
     <div>
-        <li>{{ department.name }} <a href="{% url 'removeDepartment' department.id %}" class="deleteButton" style="font-weight: 200;">Delete</a></li>
+        <li>{{ department.name }} <a href="{% url 'removeDepartment' department.id %}" class="deleteButton"> Delete</a></li>
     </div>
     {% endfor %}
     
@@ -27,8 +28,8 @@
             {% endif %}
 
         </div>
-        <div class="addForm">
-            <input type="submit">
+        <div class="submitWrapper">
+            <input class="submitButton" type="submit">
         </div>
     </form>
 {% endblock %}

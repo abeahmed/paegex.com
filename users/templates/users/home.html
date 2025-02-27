@@ -1,6 +1,6 @@
 {% extends 'users/layoutMenu.html' %}
 
-{% load staticfiles %}
+{% load static %}
 
 {% block body %}
     <div style="display: grid; width: 100%;">
@@ -15,7 +15,7 @@
                 </a>
             {% endif %}
         </div> 
-        <img src="{% static '/logos.svg' %}" style= "width:800px; margin-left: 50px; margin-top:-4px; margin-right: -65px; grid-column-start: 3; grid-column-end:4;">
+        <img src="{% static '/logos.svg' %}" class="home-image">
      </div>
     <div style="display: flex; margin-top: 50px;">
         <div style="margin:auto">
@@ -23,7 +23,7 @@
         </div>
     </div>
     
-    <div class="textMessage" style="font-size: 25px; display: flex; margin-top: -30px;">
+    <div class="home-message">
         <div style="margin:auto;">Have questions? Send us an email at paegexteam@gmail.com</div>
     </div>
    

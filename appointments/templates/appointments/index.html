@@ -1,15 +1,14 @@
 
-{% extends "appointments/layout.html" %}
+{% extends "users/layoutMenu.html" %}
 
 {% block body %}
     <h1>Appointments:</h1>
     {% if not appointments %}
         <h2 class="textMessage">No appointments to show. Try adding one below</h2>
     {% else %}
-        <table style="width: 90%;">
+        <table>
             <thead>
                 <tr>
-                    <th></th>
                     <th>Name</th> 
                     <th>PatientID</th>
                     <th>Department</th>
@@ -92,7 +91,7 @@
         <div class="addForm">
             <input type="date" name="date" required>
         </div>
-        <div class="addForm">
+        <div class="submitWrapper">
             <input type="submit" class="submitButton">
         </div>
     </form>
