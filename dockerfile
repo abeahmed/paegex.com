@@ -52,11 +52,11 @@ COPY --chown=appuser:appuser . .
 ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1 
  
-# Switch to non-root user
 USER appuser
- 
-# Expose the application port
-EXPOSE 8000 
+
+EXPOSE 8000
+
+RUN chmod +x /app/start.sh
  
 # Start the application using Gunicorn
-CMD ["gunicorn", "--bind", "0.0.0.0:8000", "--workers", "3", "hospitalmanagement.wsgi:application"]
+CMD ["/app/start.sh"]
