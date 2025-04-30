@@ -18,8 +18,8 @@ This application is deployed in the cloud with **Docker** containers for scalabi
 - **Database**: PostgreSQL
 - **Frontend**: JavaScript, HTML, CSS
 - **Cloud Deployment**:
-  - Docker: Containerization for scalable and portable deployment.
-  - Digital Ocean: For a scalabale virtual private server (VPS)
-  - Nginx: Reverse proxy to handle HTTP requests and manage traffic.
-  - Cloudflare: For DNS management, SSL, and security enhancements.
+- Docker: Containerization for scalable and portable deployment.
+- Digital Ocean: For a scalabale virtual private server (VPS)
+- Nginx: Reverse proxy to handle HTTP requests and manage traffic.
+- Cloudflare: For DNS management, SSL, and security enhancements.
 - **Version Control**: Git & GitHub
