@@ -1,5 +1,7 @@
 # Paegex
 
+**Live Application:** https://paegex.com
+
 ## Description
 **Paegex** is a full-stack web application designed to streamline the management of patient data in healthcare environments. The app is built using **Django** for the backend, **PostgreSQL** as the database, and **JavaScript** for the frontend. The system allows for efficient patient data storage, management, and retrieval, making it easier for healthcare providers to track patient information.
 
